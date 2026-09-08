@@ -1,0 +1,52 @@
+DNS records for growsin.com
+
+Add the following records at your DNS provider for the domain `growsin.com` (replace placeholders where noted).
+
+1) IPv6 (AAAA) - required (detected on this server)
+- Type: AAAA
+- Name/Host: @
+- Value: 2a02:4780:12:2ae1::1
+- TTL: 3600
+
+2) IPv4 (A) - optional (if your server has an IPv4 address)
+- Type: A
+- Name/Host: @
+- Value: <YOUR_SERVER_IPV4_ADDRESS>
+- TTL: 3600
+
+3) www (redirect to apex)
+- Type: CNAME
+- Name/Host: www
+- Value: growsin.com
+- TTL: 3600
+
+4) SPF (basic) - allow sending from this host (adjust if you use external mail providers)
+- Type: TXT
+- Name/Host: @
+- Value: "v=spf1 ip6:2a02:4780:12:2ae1::1 ~all"
+- TTL: 3600
+
+5) DMARC (optional)
+- Type: TXT
+- Name/Host: _dmarc
+- Value: "v=DMARC1; p=none; rua=mailto:postmaster@growsin.com"
+- TTL: 3600
+
+6) ACME / Let's Encrypt (only when performing DNS-01 challenge)
+- Type: TXT
+- Name/Host: _acme-challenge
+- Value: <ACME_CHALLENGE_TOKEN_FROM_YOUR_ACME_CLIENT>
+- TTL: 60 (short for quick validation) or follow provider recommendations
+
+Notes
+- Replace `<YOUR_SERVER_IPV4_ADDRESS>` and email addresses with your real IPv4 and contact.
+- For HTTP-01 (normal certbot/Let's Encrypt), you MUST point `@` (and `www`) to one of the A/AAAA above so port 80/443 reach this server.
+- If you prefer DNS-01 automation, I can instruct a DNS-API based certbot flow; you'll need API credentials for your DNS provider.
+
+Verification commands (run from your machine or on the server):
+- Check AAAA: `dig AAAA growsin.com +short`
+- Check A: `dig A growsin.com +short`
+- Check www CNAME: `dig CNAME www.growsin.com +short`
+- Check TXT: `dig TXT _acme-challenge.growsin.com +short`
+
+When you finish adding these records, tell me and I will continue with the Next.js build, nginx config and TLS issuance.

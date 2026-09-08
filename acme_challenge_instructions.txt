@@ -1,0 +1,26 @@
+ACME / Let's Encrypt DNS-01 instructions (manual)
+
+Use these instructions if you prefer to obtain a certificate using the DNS-01 challenge (useful when the server is behind NAT or ports 80/443 are not reachable).
+
+1) On the server run (example using certbot manual):
+
+   sudo certbot certonly --manual --preferred-challenges dns -d growsin.com -d www.growsin.com
+
+2) Certbot will print a TXT record to create for each domain, e.g.:
+
+   Please deploy a DNS TXT record under the name
+   _acme-challenge.growsin.com with the following value:
+
+   _acme-challenge.growsin.com. IN TXT "<LONG_TOKEN_FROM_CERTBOT>"
+
+3) Add that TXT record at your DNS provider. Wait until the record has propagated (you can check with `dig`):
+
+   dig +short TXT _acme-challenge.growsin.com
+
+4) Once `dig` shows the token, press Enter in the certbot prompt to continue validation. If validation succeeds, certbot will save the cert files under `/etc/letsencrypt/live/growsin.com/`.
+
+5) Automating DNS-01: Many DNS providers offer APIs that Certbot can use via plugins (e.g., `certbot-dns-cloudflare`, `certbot-dns-route53`). If you want automation, tell me your DNS provider and I'll outline the plugin and required API credentials.
+
+Notes:
+- TTL: create the TXT with a low TTL (60) while validating, then raise it back afterwards.
+- Keep the TXT record in place until certbot reports success. Remove afterward if you prefer.

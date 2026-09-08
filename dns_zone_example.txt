@@ -1,0 +1,26 @@
+$ORIGIN growsin.com.
+$TTL 3600
+@   IN  SOA ns1.example.com. hostmaster.growsin.com. (
+        2025112401 ; serial
+        3600       ; refresh
+        1800       ; retry
+        604800     ; expire
+        3600 )     ; minimum
+
+; Nameservers (replace with your provider's NS)
+    IN  NS  ns1.example.com.
+    IN  NS  ns2.example.com.
+
+; Addresses
+@   IN  AAAA 2a02:4780:12:2ae1::1
+@   IN  A     <YOUR_IPV4_ADDRESS>
+
+; www -> apex
+www IN  CNAME @
+
+; SPF and DMARC
+@   IN  TXT "v=spf1 ip6:2a02:4780:12:2ae1::1 ~all"
+_dmarc IN TXT "v=DMARC1; p=none; rua=mailto:postmaster@growsin.com"
+
+; ACME challenge placeholder (replace token at validation time)
+_acme-challenge IN TXT "<ACME_TOKEN>"

@@ -1,0 +1,515 @@
+/* Founder Page Styles */
+
+.founder-hero {
+  background: linear-gradient(-45deg, #f8f9fa, #e0e7ff, #d1d5db, #f8f9fa);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.founder-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  text-align: center;
+  color: #000;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.founder-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.founder-hero-text {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+
+.founder-hero-text.bold {
+  font-weight: 500;
+  color: #1f2937;
+  margin-top: 2rem;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-delayed {
+  animation-delay: 0.5s;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accent-line {
+  width: 80px;
+  height: 3px;
+  background-color: #3b82f6;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.scroll-reveal.visible .accent-line {
+  transform: scaleX(1);
+}
+
+.accent-line.right {
+  margin-left: auto;
+  transform-origin: right;
+  margin-top: 3rem;
+}
+
+@keyframes accent-line-draw {
+  to { transform: scaleX(1); }
+}
+
+.pull-quote {
+  padding-left: 2rem;
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 2rem;
+}
+
+.pull-quote p {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #1f2937;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.pull-quote-mt {
+  margin-top: 2.5rem;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.glass-card h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.glass-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.glass-card ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.glass-card ul li {
+  margin-bottom: 0.75rem;
+  line-height: 1.75;
+}
+
+.founder-tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.founder-title {
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.founder-text {
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+#headline span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#headline span.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.image-container {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-container img {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-container:hover {
+  transform: translateY(-8px);
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+.founder-section {
+  padding: 5rem 0;
+}
+
+.founder-section-alt {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.founder-row-gap {
+  gap: 3rem;
+}
+
+/* Team portraits */
+.team-por {
+  width: 100%;
+  max-width: 550px;    
+  height: 100%;      
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f3f4f6;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.team-por img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 1199.98px) {
+  .team-por { max-width: 520px; height: 560px; }
+}
+
+@media (max-width: 767.98px) {
+  .team-por { max-width: 100%; height: 500px; border-radius: 22px; }
+}
+
+@media (max-width: 479.98px) {
+  .team-por { height: 440px; border-radius: 18px; }
+}
+
+/* Mobile responsive adjustments for founder sections */
+@media (max-width: 991.98px) {
+  .mil-out-frame {
+    padding: 50px 30px !important;
+  }
+  
+  .founder-hero {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  
+  .mil-p-0-80 {
+    padding-top: 0 !important;
+    padding-bottom: 50px !important;
+  }
+  
+  /* Better spacing for icon boxes on tablet */
+  .mil-icon-box {
+    margin-bottom: 2rem;
+  }
+  
+  .col-xl-4.mil-mb-60 {
+    margin-bottom: 2.5rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .mil-out-frame {
+    padding: 40px 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  .founder-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .founder-hero .container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  .founder-hero h1 {
+    font-size: 1.75rem !important;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .founder-hero-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mil-p-0-80 {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+  
+  /* Stack image and content on mobile */
+  .col-xl-8.col-lg-7,
+  .col-xl-4.col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Improve portrait frame spacing */
+  .mil-portrait-frame {
+    margin-bottom: 2rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Better text hierarchy on mobile */
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h4 {
+    font-size: 1.25rem !important;
+    margin-top: 1.5rem !important;
+  }
+  
+  blockquote {
+    padding: 1rem 1rem !important;
+    margin: 1.5rem 0 !important;
+  }
+  
+  /* Text content should not be cut off */
+  p, .mil-text-m {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Icon box improvements */
+  .mil-icon-box {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .mil-icon-box img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1.25rem !important;
+  }
+  
+  .mil-icon-box h5 {
+    font-size: 1.125rem !important;
+  }
+  
+  .mil-icon-box .mil-text-m {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Card spacing */
+  .mil-cta .mil-out-frame {
+    padding: 50px 20px !important;
+  }
+  
+  .col-xl-4.mil-mb-60 {
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .mil-out-frame {
+    padding: 30px 15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
+  }
+  
+  .founder-hero {
+    padding: 1.5rem 0;
+    margin-top: 80px !important;
+  }
+  
+  .founder-hero .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .founder-hero h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+  
+  .founder-hero-text {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+  
+  .mil-p-0-80 {
+    padding-top: 0 !important;
+    padding-bottom: 30px !important;
+  }
+  
+  section[style*="marginTop"] {
+    margin-top: 20px !important;
+  }
+  
+  /* Remove any side padding/margin that might crop content */
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Smaller headings on very small screens */
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    padding: 0;
+  }
+  
+  h4 {
+    font-size: 1.125rem !important;
+    padding: 0;
+  }
+  
+  h5 {
+    font-size: 1rem !important;
+  }
+  
+  .mil-suptitle {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Ensure text doesn't overflow */
+  p, span, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+  
+  /* Compact icon boxes */
+  .mil-icon-box {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .mil-icon-box img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem !important;
+  }
+  
+  .mil-icon-box .mil-text-m {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* CTA card improvements */
+  .mil-cta .mil-out-frame {
+    padding: 40px 15px !important;
+  }
+  
+  .mil-mb-80-adaptive-30 {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Reduce list spacing */
+  .mil-list-2 li {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Tighter paragraph spacing */
+  p.mil-text-m {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  /* Portrait frame adjustments */
+  .mil-portrait-frame {
+    margin-bottom: 1.5rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .team-por {
+    height: 380px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Blockquote adjustments */
+  blockquote {
+    padding: 0.875rem 1rem !important;
+    margin: 1rem 0 !important;
+  }
+}

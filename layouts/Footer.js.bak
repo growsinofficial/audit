@@ -1,0 +1,521 @@
+import Link from "next/link";
+
+const Footer = ({ bg = true, margin = 160 }) => {
+  return <Footer1 bg={bg} margin={margin} />;
+};
+export default Footer;
+
+/* ========== FOOTER 1 (light) ========== */
+const Footer1 = ({ bg = true, margin = 160 }) => {
+  return (
+    <footer className={`${bg ? "mil-footer-with-bg" : ""} mil-p-${margin}-0 `}>
+      <div className="container">
+        <div className="row align-items-start">
+          {/* Column 1: Logo + Regulatory (aligned) + Contact + Core Principles */}
+          <div className="col-lg-3 col-md-6 mil-mb-60">
+            <h6 className="mil-mb-20">Growsin</h6>
+
+            {/* Regulatory Information */}
+            <div className="mil-mb-30">
+              <ul className="mil-footer-list">
+                <li className="mil-mb-15">
+                  <p className="mil-text-m mil-soft mil-mb-5">
+                    <strong>SEBI Registered Investment Adviser (IA)</strong>
+                  </p>
+                  <p className="mil-text-m mil-soft">Reg. No: INA000021261</p>
+                </li>
+
+                <li className="mil-mb-15">
+                  <p className="mil-text-m mil-soft mil-mb-5">
+                    <strong>IA Validity</strong>
+                  </p>
+                  <p className="mil-text-m mil-soft">Nov 03, 2025 - Perpetual</p>
+                </li>
+
+                <li className="mil-mb-15">
+                  <p className="mil-text-m mil-soft mil-mb-5">
+                    <strong>SEBI Registered Research Analyst (RA)</strong>
+                  </p>
+                  <p className="mil-text-m mil-soft">Reg. No: INH000023667</p>
+                </li>
+
+                <li className="mil-mb-15">
+                  <p className="mil-text-m mil-soft mil-mb-5">
+                    <strong>RA Validity</strong>
+                  </p>
+                  <p className="mil-text-m mil-soft">Oct 27, 2025 – Oct 26, 2030</p>
+                </li>
+
+                <li className="mil-mb-15">
+                  <p className="mil-text-m mil-soft mil-mb-5">
+                    <strong>BASL Membership No</strong>
+                  </p>
+                  <p className="mil-text-m mil-soft">28698</p>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact & Compliance */}
+            <h6 className="mil-mb-15">Contact &amp; Compliance</h6>
+            <div className="mil-mb-30">
+              <ul className="mil-footer-list">
+                <li className="mil-mb-10 mil-text-m mil-soft">
+                  <strong>Principal Officer:</strong><br />
+                  Murali Krishna Sivvala
+                </li>
+                <li className="mil-mb-10 mil-text-m mil-soft">
+                  <strong>Compliance:</strong><br />
+                  compliance@growsin.com
+                </li>
+                <li className="mil-mb-10 mil-text-m mil-soft">
+                  <strong>Phone Number:</strong><br />
+                  +91 8500660421
+                </li>
+                <li className="mil-text-m mil-soft">
+                  <strong>Address:</strong><br />
+                  Door No. 14-1-3/5, 2nd Floor, Donkada Colony, Aganam, Gajuwaka Mandal,
+                  Visakhapatnam District., VISAKHAPATNAM, ANDHRA PRADESH, 530046
+                </li>
+              </ul>
+            </div>
+          </div>
+
+{/* Column 2: Footer Navigation */}
+<div className="col-lg-3 col-md-6 mil-mb-60">
+  <h6 className="mil-mb-30">Our Services</h6>
+
+  <ul className="mil-footer-list">
+
+    {/* ABOUT US */}
+    <li className="mil-mb-15">
+      <Link href="/about" className="mil-text-m mil-soft mil-hover">
+        <strong>About Us</strong>
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/Philosophy" className="mil-text-m mil-soft mil-hover">
+        Our Philosophy
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/founder" className="mil-text-m mil-soft mil-hover">
+        Founder’s Profile
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/vision-mission" className="mil-text-m mil-soft mil-hover">
+        Vision & Mission
+      </Link>
+    </li>
+
+    {/* SERVICES */}
+    <li className="mil-mb-15">
+      <Link href="/services" className="mil-text-m mil-soft mil-hover">
+        <strong>Services</strong>
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/investment-advisory" className="mil-text-m mil-soft mil-hover">
+        Investment Advisory
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/research-analysis" className="mil-text-m mil-soft mil-hover">
+        Research Analysis
+      </Link>
+    </li>
+
+    {/* GROW TOOLS */}
+    <li className="mil-mb-15">
+      <Link href="/grow-tools" className="mil-text-m mil-soft mil-hover">
+        <strong>Grow Tools</strong>
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/sip-calculator" className="mil-text-m mil-soft mil-hover">
+        SIP Calculator
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/retirement-calculator" className="mil-text-m mil-soft mil-hover">
+        Retirement Calculator
+      </Link>
+    </li>
+
+    {/* REGULATORY */}
+    <li className="mil-mb-15">
+      <Link href="/regulatory" className="mil-text-m mil-soft mil-hover">
+        <strong>Regulatory</strong>
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/investor-ia" className="mil-text-m mil-soft mil-hover">
+        Investor – IA
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/investor-ra" className="mil-text-m mil-soft mil-hover">
+        Investor – RA
+      </Link>
+    </li>
+
+    <li className="mil-mb-15">
+      <Link href="/disclosure" className="mil-text-m mil-soft mil-hover">
+        Disclosure
+      </Link>
+    </li>
+
+    {/* CONTACT */}
+    <li>
+      <Link href="/contact" className="mil-text-m mil-soft mil-hover">
+        <strong>Contact</strong>
+      </Link>
+    </li>
+
+  </ul>
+</div>
+
+          {/* Column 3: Resources */}
+          <div className="col-lg-3 col-md-6 mil-mb-60">
+            <h6 className="mil-mb-30">Resources</h6>
+            <ul className="mil-footer-list">
+              <li className="mil-mb-15">
+                <Link href="/regulatory/investor-ia" className="mil-text-m mil-soft mil-hover">
+                  Investor Charter
+                </Link>
+              </li>
+              <li className="mil-mb-15">
+                <Link href="/regulatory/investor-ra" className="mil-text-m mil-soft mil-hover">
+                  Complaints Data
+                </Link>
+              </li>
+              <li className="mil-mb-15">
+                <Link href="/regulatory/disclosure" className="mil-text-m mil-soft mil-hover">
+                  Disclosure Document
+                </Link>
+              </li>
+              <li className="mil-mb-15">
+                <Link href="/privacy-policy" className="mil-text-m mil-soft mil-hover">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li className="mil-mb-15">
+                <Link href="/terms-conditions" className="mil-text-m mil-soft mil-hover">
+                  Terms &amp; Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/refund-policy" className="mil-text-m mil-soft mil-hover">
+                  Refund Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: WhatsApp Button */}
+          <div className="col-lg-3 col-md-6 mil-mb-60">
+            {/* WhatsApp Section */}
+            <div className="mil-whatsapp-section">
+              <h6 className="mil-mb-20">Talk to Us – WhatsApp</h6>
+              <a
+                href="https://wa.me/15558788700?text=Hello%21+I+am+interested+in+learning+more+about+your+business."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mil-whatsapp-button"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.373 0 .002 5.373.002 12c0 2.108.548 4.083 1.588 5.84L0 24l6.425-1.65A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.21-1.25-6.212-3.48-8.52z" fill="#fff" />
+                  <path d="M17.49 14.06c-.28-.14-1.64-.81-1.9-.9-.26-.09-.45-.14-.64.14-.18.28-.7.9-.86 1.08-.16.18-.33.2-.61.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.92-.16-.28-.02-.43.12-.56.12-.12.28-.32.42-.48.14-.16.19-.27.28-.45.09-.18.04-.34-.02-.48-.07-.13-.64-1.54-.88-2.12-.23-.56-.47-.49-.64-.5l-.55-.01c-.17 0-.45.06-.69.33-.24.28-.91.88-.91 2.15 0 1.27.93 2.5 1.06 2.67.12.18 1.82 2.9 4.42 3.95 2.6 1.05 2.6.7 3.07.66.47-.05 1.52-.62 1.74-1.22.22-.61.22-1.13.15-1.23-.07-.1-.26-.16-.54-.3z" fill="#25D366" />
+                </svg>
+                <span>Start WhatsApp Chat</span>
+              </a>
+            </div>
+
+            {/* Social */}
+            <div className="mil-social-icons mil-mt-30">
+              <h6 className="mil-mb-20">Follow Us</h6>
+              <div className="d-flex gap-3 flex-wrap">
+                {/* LinkedIn */}
+                <a href="https://www.linkedin.com/company/109383356/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="mil-social-btn mil-soft" title="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7 0h4.8v2.2h.1c.7-1.3 2.4-2.7 4.9-2.7C22.6 7.5 24 10 24 14.1V24h-5v-8.2c0-2-1.4-2.8-2.1-2.8-.8 0-1.8.5-1.8 2.8V24H7V8z" />
+                  </svg>
+                </a>
+                
+                {/* X/Twitter */}
+                <a href="https://x.com/growsin_?s=21" target="_blank" rel="noopener noreferrer" className="mil-social-btn mil-soft" title="X (Twitter)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                
+                {/* YouTube */}
+                <a href="https://www.youtube.com/channel/UCcuptiIbG0KOk1vtgQUIOJw" target="_blank" rel="noopener noreferrer" className="mil-social-btn mil-soft" title="YouTube">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+                
+                {/* Instagram */}
+                <a href="https://www.instagram.com/growsin_official/" target="_blank" rel="noopener noreferrer" className="mil-social-btn mil-soft" title="Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+                
+                {/* Facebook */}
+                <a href="https://www.facebook.com/profile.php?id=61582513401346" target="_blank" rel="noopener noreferrer" className="mil-social-btn mil-soft" title="Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================= */}
+        {/* NEW: OUR CORE PRINCIPLES     */}
+        {/* ============================= */}
+
+        <div className="row mil-mt-10">
+          <div className="col-12">
+            <div className="core-principles-wrap">
+              <h6 className="core-title">Our Core Principles</h6>
+
+              <div className="core-grid">
+
+                {/* Item 1 - NEW ICON */}
+                <div className="core-col">
+                  <div className="core-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 2l7 4v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V6l7-4z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M9 12l2 2 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div className="core-text">
+                    <strong>Regulatory Compliance</strong>
+                    <div className="core-sub">Adhering to SEBI guidelines</div>
+                  </div>
+                </div>
+
+                {/* Item 2 - NEW ICON */}
+                <div className="core-col">
+                  <div className="core-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 21s-6-4.35-9-8.5C-1.25 8 2 3 6.5 3c2.04 0 3.57 1.08 4.5 2.09C12.93 4.08 14.46 3 16.5 3 21 3 24.25 8 21 12.5c-3 4.15-9 8.5-9 8.5z"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <circle cx="12" cy="9" r="2.4" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div className="core-text">
+                    <strong>Client-First Philosophy</strong>
+                    <div className="core-sub">Your interests come first</div>
+                  </div>
+                </div>
+
+                {/* Item 3 - NEW ICON */}
+                <div className="core-col">
+                  <div className="core-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 3v14"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M5 10h6l-3 7-3-7z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M13 10h6l-3 7-3-7z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div className="core-text">
+                    <strong>Unwavering Ethics</strong>
+                    <div className="core-sub">Transparent &amp; Unbiased Advice</div>
+                  </div>
+                </div>
+
+                {/* Item 4 - NEW ICON */}
+                <div className="core-col">
+                  <div className="core-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 20V10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                      <path d="M10 20V4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                      <path d="M16 20v-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                      <path d="M2 20h20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <div className="core-text">
+                    <strong>Data-Driven Insights</strong>
+                    <div className="core-sub">Decisions backed by research</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <div className="row mil-mt-40">
+          <div className="col-12">
+            <div className="mil-disclaimer-box">
+              <ul className="mil-footer-list">
+                <li className="mil-text-xs mil-soft mil-mb-10">
+                  <strong>General Disclaimer:</strong> Registration granted by SEBI, membership of BASL (in case of IAs), and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors. The information provided on this website is for general informational purposes only and should not be construed as professional advice.
+                </li>
+                <li className="mil-text-xs mil-soft mil-mb-10">
+                  <strong>Segregation of Activities &amp; Annual Audit:</strong> Our Investment Advisory and Research Analyst activities are maintained at an arm's-length from any other business activities. We undergo a mandatory Annual Compliance Audit conducted by a practicing Company Secretary or Chartered Accountant to ensure adherence to all SEBI regulations.
+                </li>
+                <li className="mil-text-xs mil-soft mil-mb-10">
+                  <strong>No Guaranteed Returns:</strong> We do not offer any services that promise guaranteed or assured returns. Any representations to the contrary are false and should be reported to us immediately. Investment advisory is a fee-based service and is not linked to market performance.
+                </li>
+                <li className="mil-text-xs mil-soft">
+                  <strong>Grievance Redressal:</strong> For any grievances, please contact our Compliance Officer, Murali Krishna Sivvala, at{" "}
+                  <a href="mailto:compliance@growsin.com" className="mil-soft">
+                    compliance@growsin.com
+                  </a>
+                  . If unsatisfied, you may lodge a complaint with SEBI on the SCORES platform or the ODR Portal at{" "}
+                  <a href="https://smartodr.in/" target="_blank" rel="noopener noreferrer" className="mil-soft">
+                    https://smartodr.in/
+                  </a>
+                  .
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="mil-footer-bottom mil-mt-40">
+          <div className="row">
+            <div className="col-12 text-center">
+              <p className="mil-text-s mil-soft">© 2025 Growsin. All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ============ STYLES ============ */}
+      <style jsx>{`
+        .mil-hover:hover { opacity: 0.8; transition: opacity 0.25s ease; }
+        .mil-social-btn {
+          width: 40px; height: 40px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          border: 1px solid rgba(0,0,0,0.06);
+          text-decoration: none; transition: transform 0.2s ease, opacity 0.2s;
+          color: inherit;
+        }
+        .mil-social-btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        .mil-disclaimer-box {
+          padding: 18px; border-radius: 8px; background: rgba(0,0,0,0.03);
+        }
+
+        .mil-whatsapp-button {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 24px;
+          background: #25D366;
+          color: white;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.95rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+        }
+        .mil-whatsapp-button:hover {
+          background: #20BA5A;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
+        .mil-scale-img { transition: transform 0.2s ease; }
+        .mil-scale-img:hover { transform: scale(1.04); }
+
+        .mil-mb-30 { margin-bottom: 18px !important; }
+        .mil-mb-15 { margin-bottom: 10px !important; }
+        .mil-mt-40 { margin-top: 20px !important; }
+
+        /* Core principles layout */
+        .core-principles-wrap { padding: 12px 0 0 0; }
+        .core-title {
+          font-size: 1rem;
+          font-weight: 700;
+          margin-bottom: 12px;
+          color: rgba(0,0,0,0.85);
+        }
+        .core-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 28px 40px;
+          align-items: start;
+          padding-top: 6px;
+        }
+        .core-col {
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        }
+        .core-icon {
+          color: rgba(0,0,0,0.55);
+          min-width: 28px;
+          display: flex;
+          align-items: center;
+        }
+        .core-text strong { display: block; font-weight: 700; color: rgba(0,0,0,0.8); }
+        .core-sub { color: rgba(0,0,0,0.5); margin-top: 6px; font-size: 0.95rem; line-height:1.45; }
+
+        @media (max-width: 991.98px) {
+          .core-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 575.98px) {
+          .core-grid {
+            grid-template-columns: 1fr;
+            gap: 18px;
+          }
+          .core-sub { font-size: 0.95rem; }
+        }
+      `}</style>
+    </footer>
+  );
+};
