@@ -70,7 +70,7 @@ export default function MarketingLanding() {
     }
   };
 
-  const submitLead = (type) => {
+  const submitLead = async (type) => {
     setErrorMsg("");
     setLoading(true);
     setSubmittedType(type);
@@ -88,7 +88,7 @@ export default function MarketingLanding() {
         timestamp: new Date().toISOString(),
       };
 
-      // Store in client-side localStorage for retention
+      // Store in client-side localStorage for offline retention
       if (typeof window !== "undefined" && window.localStorage) {
         try {
           const existing = JSON.parse(localStorage.getItem("growsin_leads") || "[]");
@@ -104,6 +104,33 @@ export default function MarketingLanding() {
         type,
         source: utms.utm_source || "direct",
       });
+
+      // Dispatch lead email notification to growsinofficial@gmail.com
+      try {
+        await fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New Lead: ${type === "session" ? "Free 1-on-1 Consultation" : "Starter Guide Download"} - ${formData.name.trim() || formData.email.trim()}`,
+            _template: "table",
+            _captcha: "false",
+            "Full Name": formData.name.trim() || "Not provided",
+            "Email Address": formData.email.trim(),
+            "Phone Number": formData.phone.trim() || "Not provided",
+            "Request Type": type === "session" ? "30-Min Free Goal-Mapping Session" : "Investor Starter Guide",
+            "Submitted At": new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+            "UTM Source": utms.utm_source || "direct",
+            "UTM Medium": utms.utm_medium || "none",
+            "UTM Campaign": utms.utm_campaign || "none",
+            "Page": typeof window !== "undefined" ? window.location.href : "https://www.growsin.com/invest-with-discipline",
+          }),
+        });
+      } catch (networkErr) {
+        console.warn("Email dispatch notification notice:", networkErr);
+      }
 
       setSubmitted(true);
     } catch (err) {
