@@ -42,7 +42,7 @@ export default function MarketingLanding() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) {
       alert("Please enter your Full Name.");
@@ -66,6 +66,7 @@ export default function MarketingLanding() {
     }
     setLoading(true);
 
+    // Save lead in sessionStorage for thank-you page display
     if (typeof window !== "undefined") {
       try {
         sessionStorage.setItem("growsin_lead", JSON.stringify(formData));
@@ -82,15 +83,36 @@ export default function MarketingLanding() {
       }
     }
 
-    setTimeout(() => {
+    // Send lead to growsinofficial@gmail.com via FormSubmit
+    try {
+      await fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          "Full Name": formData.name.trim(),
+          "Mobile Number": "+91 " + formData.phone.trim(),
+          "Email Address": formData.email.trim(),
+          "Primary Goal Horizon": formData.horizon,
+          "Risk Comfort": formData.riskComfort,
+          _subject: `New Goal-Mapping Lead: ${formData.name.trim()} (${formData.phone.trim()})`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+    } catch (error) {
+      console.error("Form submission error:", error);
+    } finally {
       setLoading(false);
-      const targetUrl = `/thank-you?name=${encodeURIComponent(formData.name.trim())}`;
+      const targetUrl = "/thank-you";
       if (router && typeof router.push === "function") {
         router.push(targetUrl);
       } else if (typeof window !== "undefined") {
         window.location.href = targetUrl;
       }
-    }, 400);
+    }
   };
 
   const handleReset = () => {
