@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&family=Inter:wght@400;500;600;700&display=swap');
 
 .mkt-page {
-  --navy: #002c51;
-  --navy-2: #0a4272;
-  --green: #f47b20; /* Brand Orange */
-  --green-dark: #cf5c0b; /* Deep Brand Orange */
-  --bg-soft: #f3f7fd;
-  --ink: #1b1d1d;
-  --muted: #5a6b7d;
-  --line: #dbe7f3;
+  /* ===== GROWSIN OFFICIAL BRAND COLORS (NO BLUE) ===== */
+  --brand-green: #1f9a32;       /* Growsin Signature Leaf Green */
+  --brand-green-dark: #167a27;  /* Deep Forest Green */
+  --brand-dark: #072e14;        /* Deepest Forest Shade (replaces navy) */
+  --brand-dark-2: #0e4c22;      /* Rich Dark Emerald */
+  --brand-dark-3: #15662f;      /* Mid Forest Accent */
+  --brand-gold: #fbbf24;        /* Warm Gold Accent */
+  --brand-gold-dark: #d97706;   /* Deep Amber */
+  --bg-soft: #f4faf5;           /* Soft Sage/Mint Neutral */
+  --ink: #111a13;               /* Dark Slate/Forest Text */
+  --muted: #4e6353;             /* Muted Green-Gray */
+  --line: #d6e8da;              /* Soft Green Border */
   --white: #ffffff;
   --radius: 16px;
-  --shadow: 0 10px 30px rgba(0, 44, 81, 0.10);
+  --shadow: 0 10px 30px rgba(7, 46, 20, 0.08);
 
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   color: var(--ink);
@@ -52,7 +56,7 @@
 }
 
 .mkt-page a {
-  color: var(--navy-2);
+  color: var(--brand-green-dark);
   text-decoration: none;
 }
 
@@ -88,34 +92,34 @@
 }
 
 .mkt-page .btn-primary {
-  background: var(--green);
+  background: var(--brand-green);
   color: #fff;
-  box-shadow: 0 8px 20px rgba(244, 123, 32, 0.30);
+  box-shadow: 0 8px 20px rgba(31, 154, 50, 0.32);
 }
 
 .mkt-page .btn-primary:hover {
-  background: var(--green-dark);
+  background: var(--brand-green-dark);
 }
 
 .mkt-page .btn-outline {
   background: transparent;
-  color: var(--navy);
-  border: 2px solid var(--navy);
+  color: var(--brand-dark);
+  border: 2px solid var(--brand-dark);
 }
 
 .mkt-page .btn-outline:hover {
-  background: var(--navy);
+  background: var(--brand-dark);
   color: #fff;
 }
 
 .mkt-page .btn-outline.on-dark {
   color: #fff;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .mkt-page .btn-outline.on-dark:hover {
   background: #fff;
-  color: var(--navy);
+  color: var(--brand-dark);
 }
 
 .mkt-page .sec-head {
@@ -126,7 +130,7 @@
 
 .mkt-page .sec-head h2 {
   font-size: clamp(24px, 3.2vw, 36px);
-  color: var(--navy);
+  color: var(--brand-dark);
   margin-bottom: 14px;
 }
 
@@ -164,8 +168,8 @@
 }
 
 .mkt-page .reg-banner {
-  background: var(--navy);
-  color: #cfe1f1;
+  background: var(--brand-dark);
+  color: #bbf7d0;
   font-size: 13px;
   font-weight: 600;
   text-align: center;
@@ -175,17 +179,17 @@
 }
 
 .mkt-page .reg-banner strong {
-  color: #fff;
+  color: #ffffff;
 }
 
 .mkt-page .reg-banner .sep {
-  color: #fbbf24;
+  color: var(--brand-gold);
   margin: 0 8px;
 }
 
 /* ===== HERO ===== */
 .mkt-page .hero {
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 70%, #0d4f86 100%);
+  background: linear-gradient(160deg, var(--brand-dark) 0%, var(--brand-dark-2) 65%, var(--brand-dark-3) 100%);
   color: #fff;
   padding: 64px 0 76px;
   position: relative;
@@ -199,7 +203,19 @@
   top: -140px;
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(244, 123, 32, 0.28), transparent 65%);
+  background: radial-gradient(circle, rgba(31, 154, 50, 0.30), transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mkt-page .hero::before {
+  content: "";
+  position: absolute;
+  left: -120px;
+  bottom: -160px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.12), transparent 65%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -217,9 +233,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.10);
-  color: #fed7aa;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #bbf7d0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.30);
   font-size: 13px;
   font-weight: 600;
   padding: 7px 14px;
@@ -230,14 +246,15 @@
 .mkt-page .hero h1 {
   font-size: clamp(28px, 4.2vw, 44px);
   margin-bottom: 18px;
-  color: #fff;
+  color: #ffffff !important;
 }
 
 .mkt-page .hero .sub {
   font-size: clamp(15px, 1.6vw, 18px);
-  color: #cfe1f1;
+  color: #d1fae5 !important;
   margin-bottom: 28px;
   max-width: 36em;
+  line-height: 1.6;
 }
 
 .mkt-page .cta-row {
@@ -276,7 +293,7 @@
 }
 
 .mkt-page .hero-panel .hero-teach-item .ic {
-  color: #fbbf24 !important;
+  color: var(--brand-gold) !important;
   font-size: 16px;
   font-weight: 800;
   flex: none;
@@ -295,9 +312,9 @@
 /* ===== EDUCATIONAL CASE STUDY MODULE ===== */
 .mkt-page .module-tag {
   display: inline-block;
-  background: rgba(10, 66, 114, 0.10);
-  color: var(--navy-2);
-  border: 1.5px solid rgba(10, 66, 114, 0.30);
+  background: rgba(31, 154, 50, 0.10);
+  color: var(--brand-green-dark);
+  border: 1.5px solid rgba(31, 154, 50, 0.30);
   font-weight: 700;
   font-size: 14px;
   padding: 8px 18px;
@@ -335,20 +352,20 @@
   border-radius: 12px;
   border: 2px solid var(--line);
   background: #fff;
-  color: var(--navy);
+  color: var(--brand-dark);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .mkt-page .tier-tab:hover {
-  border-color: var(--green);
+  border-color: var(--brand-green);
 }
 
 .mkt-page .tier-tab.active {
-  background: var(--navy);
-  border-color: var(--navy);
+  background: var(--brand-green);
+  border-color: var(--brand-green);
   color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 44, 81, 0.25);
+  box-shadow: 0 8px 20px rgba(31, 154, 50, 0.30);
 }
 
 .mkt-page .tier-panel {
@@ -390,7 +407,7 @@
 }
 
 .mkt-page .tier-head h3 {
-  color: var(--navy);
+  color: var(--brand-dark);
   font-size: 22px;
 }
 
@@ -399,9 +416,9 @@
   font-weight: 700;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(244, 123, 32, 0.12);
-  color: var(--green-dark);
-  border: 1px solid rgba(244, 123, 32, 0.3);
+  background: rgba(31, 154, 50, 0.12);
+  color: var(--brand-green-dark);
+  border: 1px solid rgba(31, 154, 50, 0.3);
 }
 
 .mkt-page .tier-body {
@@ -422,7 +439,7 @@
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--green-dark);
+  color: var(--brand-green-dark);
   margin-bottom: 14px;
   font-weight: 700;
 }
@@ -442,7 +459,7 @@
 
 .mkt-page .alloc-row .amt {
   font-weight: 700;
-  color: var(--navy);
+  color: var(--brand-dark);
   font-variant-numeric: tabular-nums;
 }
 
@@ -459,7 +476,7 @@
   display: block;
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--green), #fbbf24);
+  background: linear-gradient(90deg, var(--brand-green), var(--brand-gold));
 }
 
 .mkt-page .logic-list {
@@ -477,7 +494,7 @@
 }
 
 .mkt-page .logic-list .ck {
-  color: var(--green);
+  color: var(--brand-green);
   font-weight: 700;
   flex: none;
 }
@@ -492,7 +509,7 @@
 }
 
 .mkt-page .tier-foot strong {
-  color: var(--navy);
+  color: var(--brand-dark);
 }
 
 /* ===== HOW SIP FITS ===== */
@@ -513,11 +530,11 @@
 
 .mkt-page .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0, 44, 81, 0.12);
+  box-shadow: 0 16px 36px rgba(7, 46, 20, 0.12);
 }
 
 .mkt-page .card h3 {
-  color: var(--navy);
+  color: var(--brand-dark);
   font-size: 18px;
   margin: 14px 0 8px;
 }
@@ -534,8 +551,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(244, 123, 32, 0.12);
-  color: var(--green-dark);
+  background: rgba(31, 154, 50, 0.12);
+  color: var(--brand-green-dark);
   font-size: 22px;
 }
 
@@ -563,12 +580,12 @@
   gap: 10px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--brand-dark);
   margin-bottom: 12px;
 }
 
 .mkt-page .viz-field .val {
-  color: var(--green-dark);
+  color: var(--brand-green-dark);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -576,7 +593,7 @@
 
 .mkt-page input[type='range'] {
   width: 100%;
-  accent-color: var(--green);
+  accent-color: var(--brand-green);
   height: 6px;
   cursor: pointer;
 }
@@ -591,7 +608,7 @@
 }
 
 .mkt-page .viz-result {
-  background: var(--navy);
+  background: linear-gradient(160deg, var(--brand-dark) 0%, var(--brand-dark-2) 100%);
   color: #fff;
   border-radius: 14px;
   padding: 24px;
@@ -601,7 +618,7 @@
 
 .mkt-page .viz-result .cap {
   font-size: 12.5px;
-  color: #cfe1f1;
+  color: #bbf7d0;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -611,19 +628,19 @@
 .mkt-page .viz-result .amt {
   font-family: 'Questrial', sans-serif;
   font-size: clamp(28px, 4.5vw, 40px);
-  color: #fbbf24;
+  color: var(--brand-gold);
   line-height: 1.1;
 }
 
 .mkt-page .viz-result .viz-formula {
   font-size: 12.5px;
-  color: #9db8d2;
+  color: #d1fae5;
   margin-top: 10px;
 }
 
 .mkt-page .viz-edu {
   background: var(--bg-soft);
-  border-left: 4px solid var(--green);
+  border-left: 4px solid var(--brand-green);
   border-radius: 10px;
   padding: 16px 18px;
   font-size: 14.5px;
@@ -632,12 +649,12 @@
 }
 
 .mkt-page .viz-edu strong {
-  color: var(--navy);
+  color: var(--brand-dark);
 }
 
 /* ===== GOAL-MAPPING SESSION FORM ===== */
 .mkt-page .session {
-  background: linear-gradient(160deg, var(--navy), var(--navy-2));
+  background: linear-gradient(160deg, var(--brand-dark) 0%, var(--brand-dark-2) 65%, var(--brand-dark-3) 100%);
   color: #fff;
 }
 
@@ -655,7 +672,7 @@
 }
 
 .mkt-page .session .lead {
-  color: #cfe1f1;
+  color: #d1fae5;
   font-size: 16.5px;
   margin-bottom: 24px;
 }
@@ -672,11 +689,11 @@
   gap: 10px;
   align-items: flex-start;
   font-size: 15px;
-  color: #e7f1fa;
+  color: #f0fdf4;
 }
 
 .mkt-page .check-list .ck {
-  color: #fbbf24;
+  color: var(--brand-gold);
   font-weight: 700;
   flex: none;
 }
@@ -690,7 +707,7 @@
 }
 
 .mkt-page .form-card h3 {
-  color: var(--navy);
+  color: var(--brand-dark);
   font-size: 21px;
   margin-bottom: 6px;
 }
@@ -709,7 +726,7 @@
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--brand-dark);
   margin-bottom: 6px;
 }
 
@@ -729,8 +746,8 @@
 
 .mkt-page .field input:focus,
 .mkt-page .field select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(244, 123, 32, 0.15);
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 3px rgba(31, 154, 50, 0.15);
 }
 
 .mkt-page .field-row {
@@ -748,7 +765,7 @@
 .mkt-page .risk-anchor {
   margin-top: 14px;
   background: var(--bg-soft);
-  border-left: 4px solid var(--green);
+  border-left: 4px solid var(--brand-green);
   border-radius: 8px;
   padding: 13px 15px;
   font-size: 12.5px;
@@ -757,7 +774,7 @@
 }
 
 .mkt-page .risk-anchor strong {
-  color: var(--navy);
+  color: var(--brand-dark);
 }
 
 .mkt-page .microcopy {
@@ -768,8 +785,8 @@
 }
 
 .mkt-page .form-success {
-  background: rgba(244, 123, 32, 0.08);
-  border: 1px solid rgba(244, 123, 32, 0.3);
+  background: rgba(31, 154, 50, 0.08);
+  border: 1px solid rgba(31, 154, 50, 0.3);
   border-radius: 12px;
   padding: 24px;
   text-align: center;
@@ -781,7 +798,7 @@
 }
 
 .mkt-page .form-success h4 {
-  color: var(--navy);
+  color: var(--brand-dark);
   font-size: 20px;
   margin-bottom: 8px;
   font-family: 'Questrial', sans-serif;
@@ -809,7 +826,7 @@
 }
 
 .mkt-page .faq-item.open {
-  border-color: rgba(244, 123, 32, 0.4);
+  border-color: rgba(31, 154, 50, 0.4);
 }
 
 .mkt-page .faq-q {
@@ -820,7 +837,7 @@
   font-family: inherit;
   font-size: 15.5px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--brand-dark);
   padding: 20px 24px;
   cursor: pointer;
   display: flex;
@@ -831,7 +848,7 @@
 }
 
 .mkt-page .faq-q .pm {
-  color: var(--green-dark);
+  color: var(--brand-green-dark);
   font-size: 22px;
   font-weight: 700;
   flex: none;
@@ -879,7 +896,7 @@
 
 .mkt-page .trust-item strong {
   display: block;
-  color: var(--navy);
+  color: var(--brand-dark);
   font-size: 14.5px;
   margin-bottom: 4px;
 }
@@ -895,7 +912,7 @@
   background: #fff;
   border-top: 1px solid var(--line);
   padding: 10px 14px;
-  box-shadow: 0 -6px 24px rgba(0, 44, 81, 0.14);
+  box-shadow: 0 -6px 24px rgba(7, 46, 20, 0.14);
 }
 
 .mkt-page .sticky-cta .btn {
