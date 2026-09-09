@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Footer from "@/layouts/Footer";
 import "./marketing.css";
 
@@ -62,10 +63,27 @@ export default function MarketingLanding() {
       return;
     }
     setLoading(true);
+
+    if (typeof window !== "undefined") {
+      try {
+        sessionStorage.setItem("growsin_lead", JSON.stringify(formData));
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: "lead_form_submitted",
+            lead_source: "marketing_landing",
+            lead_horizon: formData.horizon,
+            lead_risk: formData.riskComfort,
+          });
+        }
+      } catch (err) {
+        // ignore
+      }
+    }
+
     setTimeout(() => {
       setLoading(false);
-      setSubmitted(true);
-    }, 500);
+      router.push(`/thank-you?name=${encodeURIComponent(formData.name.trim())}`);
+    }, 400);
   };
 
   const handleReset = () => {
