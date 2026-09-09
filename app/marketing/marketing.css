@@ -22,8 +22,18 @@
   overflow-x: hidden;
 }
 
-.mkt-page * {
+.mkt-page,
+.mkt-page *,
+.mkt-page *::before,
+.mkt-page *::after {
   box-sizing: border-box;
+}
+
+.mkt-page h1,
+.mkt-page h2,
+.mkt-page h3,
+.mkt-page p,
+.mkt-page ul {
   margin: 0;
   padding: 0;
 }
@@ -237,37 +247,49 @@
 }
 
 .mkt-page .hero-panel {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
-  padding: 28px;
-  backdrop-filter: blur(4px);
+  padding: 30px 28px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
 
 .mkt-page .hero-panel h3 {
-  color: #fff;
-  font-size: 17px;
-  margin-bottom: 14px;
+  color: #ffffff !important;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
 }
 
-.mkt-page .hero-panel .row {
+.mkt-page .hero-panel .hero-teach-item {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
-  padding: 11px 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
-  font-size: 14px;
-  color: #c3d8ec;
+  padding: 13px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.22);
 }
 
-.mkt-page .hero-panel .row:last-child {
+.mkt-page .hero-panel .hero-teach-item:last-child {
   border-bottom: none;
 }
 
-.mkt-page .hero-panel .ic {
-  color: #fbbf24;
+.mkt-page .hero-panel .hero-teach-item .ic {
+  color: #fbbf24 !important;
+  font-size: 16px;
+  font-weight: 800;
   flex: none;
-  font-weight: 700;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.mkt-page .hero-panel .hero-teach-item .hero-teach-text {
+  color: #ffffff !important;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== EDUCATIONAL CASE STUDY MODULE ===== */
@@ -942,5 +964,18 @@
   .mkt-page .reg-banner {
     font-size: 11.5px;
     padding: 8px 12px;
+  }
+}
+
+/* ===== WEBSITE FOOTER INTEGRATION ===== */
+.mkt-footer-area {
+  position: relative;
+  width: 100%;
+  background-color: rgb(243 247 253);
+}
+
+@media (max-width: 620px) {
+  .mkt-footer-area footer {
+    padding-bottom: 80px !important;
   }
 }

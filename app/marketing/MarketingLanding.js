@@ -64,8 +64,9 @@ export default function MarketingLanding() {
   };
 
   return (
-    <div className="mkt-page">
-      {/* ===== HEADER + REGULATORY BANNER ===== */}
+    <>
+      <div className="mkt-page">
+        {/* ===== HEADER + REGULATORY BANNER ===== */}
       <header className="mkt-header">
         <div className="wrap nav">
           <Link href="/" aria-label="Growsin Homepage">
@@ -114,21 +115,29 @@ export default function MarketingLanding() {
           </div>
           <div className="hero-panel">
             <h3>What this page will teach you</h3>
-            <div className="row">
+            <div className="hero-teach-item">
               <span className="ic">✓</span>
-              <span>How asset allocation shifts across Conservative, Moderate &amp; Aggressive risk profiles</span>
+              <span className="hero-teach-text">
+                How asset allocation shifts across Conservative, Moderate &amp; Aggressive risk profiles
+              </span>
             </div>
-            <div className="row">
+            <div className="hero-teach-item">
               <span className="ic">✓</span>
-              <span>Why time horizon (3–5 vs 5–10 vs 10+ years) changes the equity–debt mix</span>
+              <span className="hero-teach-text">
+                Why time horizon (3–5 vs 5–10 vs 10+ years) changes the equity–debt mix
+              </span>
             </div>
-            <div className="row">
+            <div className="hero-teach-item">
               <span className="ic">✓</span>
-              <span>How monthly SIP instalments apply rupee-cost averaging inside a structured framework</span>
+              <span className="hero-teach-text">
+                How monthly SIP instalments apply rupee-cost averaging inside a structured framework
+              </span>
             </div>
-            <div className="row">
+            <div className="hero-teach-item">
               <span className="ic">✓</span>
-              <span>What rebalancing rules keep a model portfolio aligned with its risk mandate</span>
+              <span className="hero-teach-text">
+                What rebalancing rules keep a model portfolio aligned with its risk mandate
+              </span>
             </div>
           </div>
         </div>
@@ -781,9 +790,6 @@ export default function MarketingLanding() {
         </div>
       </section>
 
-      {/* ===== WEBSITE FOOTER (Replaced static footer with official site Footer) ===== */}
-      <Footer bg={false} margin={60} />
-
       {/* ===== STICKY MOBILE CTA ===== */}
       <div className="sticky-cta">
         <a href="#session" className="btn btn-primary">
@@ -791,5 +797,11 @@ export default function MarketingLanding() {
         </a>
       </div>
     </div>
-  );
+
+    {/* ===== WEBSITE FOOTER (Rendered outside mkt-page with natural site styles) ===== */}
+    <div className="mkt-footer-area">
+      <Footer bg={true} margin={160} />
+    </div>
+  </>
+);
 }
