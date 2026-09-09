@@ -28,21 +28,37 @@ export default function MarketingLanding() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  // Form State
+  // Form State - all fields mandatory
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    horizon: "I'd like to explore this in the session",
-    riskComfort: "Not sure — let's map it together",
+    horizon: "",
+    riskComfort: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) {
-      alert("Please fill in all required fields.");
+    if (!formData.name.trim()) {
+      alert("Please enter your Full Name.");
+      return;
+    }
+    if (!formData.email.trim()) {
+      alert("Please enter your Email Address.");
+      return;
+    }
+    if (!formData.phone.trim() || formData.phone.length !== 10) {
+      alert("Please enter a valid 10-digit mobile number (10 digits only, no +91).");
+      return;
+    }
+    if (!formData.horizon) {
+      alert("Please select your Primary Goal Horizon.");
+      return;
+    }
+    if (!formData.riskComfort) {
+      alert("Please select your Risk Comfort.");
       return;
     }
     setLoading(true);
@@ -58,8 +74,8 @@ export default function MarketingLanding() {
       name: "",
       email: "",
       phone: "",
-      horizon: "I'd like to explore this in the session",
-      riskComfort: "Not sure — let's map it together",
+      horizon: "",
+      riskComfort: "",
     });
   };
 
@@ -523,21 +539,29 @@ export default function MarketingLanding() {
               you can see which educational framework resembles your situation, and why.
             </p>
             <ul className="check-list">
-              <li>
+              <li className="check-item">
                 <span className="ck">✓</span>
-                <span>Map your risk comfort zone using a structured profiling exercise</span>
+                <span className="check-text">
+                  Map your risk comfort zone using a structured profiling exercise
+                </span>
               </li>
-              <li>
+              <li className="check-item">
                 <span className="ck">✓</span>
-                <span>Define your time horizons — short, medium, and long-term goals</span>
+                <span className="check-text">
+                  Define your time horizons — short, medium, and long-term goals
+                </span>
               </li>
-              <li>
+              <li className="check-item">
                 <span className="ck">✓</span>
-                <span>Understand which case-study logic applies to your profile, and why</span>
+                <span className="check-text">
+                  Understand which case-study logic applies to your profile, and why
+                </span>
               </li>
-              <li>
+              <li className="check-item">
                 <span className="ck">✓</span>
-                <span>Ask anything — the session is educational, with zero obligation</span>
+                <span className="check-text">
+                  Ask anything — the session is educational, with zero obligation
+                </span>
               </li>
             </ul>
           </div>
@@ -553,7 +577,7 @@ export default function MarketingLanding() {
                 <div className="success-icon">🎉</div>
                 <h4>Thank You! Your Session Is Requested.</h4>
                 <p>
-                  We have received your details ({formData.email}). A Growsin advisor
+                  We have received your details ({formData.email}, {formData.phone}). A Growsin advisor
                   will reach out to you shortly to schedule your personalized
                   goal-mapping session.
                 </p>
@@ -569,11 +593,11 @@ export default function MarketingLanding() {
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="field">
-                  <label htmlFor="nm">Full Name</label>
+                  <label htmlFor="nm">Full Name *</label>
                   <input
                     id="nm"
                     type="text"
-                    placeholder="Your name"
+                    placeholder="Your full name"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -583,7 +607,7 @@ export default function MarketingLanding() {
                 </div>
                 <div className="field-row">
                   <div className="field">
-                    <label htmlFor="em">Email Address</label>
+                    <label htmlFor="em">Email Address *</label>
                     <input
                       id="em"
                       type="email"
@@ -596,48 +620,60 @@ export default function MarketingLanding() {
                     />
                   </div>
                   <div className="field">
-                    <label htmlFor="ph">Phone Number</label>
+                    <label htmlFor="ph">Mobile Number (10 digits only) *</label>
                     <input
                       id="ph"
                       type="tel"
-                      placeholder="+91 XXXXX XXXXX"
+                      inputMode="numeric"
+                      pattern="[0-9]{10}"
+                      maxLength={10}
+                      placeholder="10-digit mobile number"
                       value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
+                      onChange={(e) => {
+                        let numericOnly = e.target.value.replace(/\D/g, "");
+                        if (numericOnly.length === 12 && numericOnly.startsWith("91")) {
+                          numericOnly = numericOnly.slice(2);
+                        } else if (numericOnly.length === 11 && numericOnly.startsWith("0")) {
+                          numericOnly = numericOnly.slice(1);
+                        }
+                        setFormData({ ...formData, phone: numericOnly.slice(0, 10) });
+                      }}
                       required
                     />
+                    <span className="field-hint">10 digits only (no +91)</span>
                   </div>
                 </div>
                 <div className="field-row">
                   <div className="field">
-                    <label htmlFor="hz">Primary Goal Horizon (exploratory)</label>
+                    <label htmlFor="hz">Primary Goal Horizon *</label>
                     <select
                       id="hz"
                       value={formData.horizon}
                       onChange={(e) =>
                         setFormData({ ...formData, horizon: e.target.value })
                       }
+                      required
                     >
-                      <option>I&apos;d like to explore this in the session</option>
-                      <option>Short term (under 3 years)</option>
-                      <option>Medium term (3–7 years)</option>
-                      <option>Long term (7+ years)</option>
+                      <option value="" disabled>-- Select Goal Horizon --</option>
+                      <option value="Short term (under 3 years)">Short term (under 3 years)</option>
+                      <option value="Medium term (3–7 years)">Medium term (3–7 years)</option>
+                      <option value="Long term (7+ years)">Long term (7+ years)</option>
                     </select>
                   </div>
                   <div className="field">
-                    <label htmlFor="rk">Risk Comfort (exploratory)</label>
+                    <label htmlFor="rk">Risk Comfort *</label>
                     <select
                       id="rk"
                       value={formData.riskComfort}
                       onChange={(e) =>
                         setFormData({ ...formData, riskComfort: e.target.value })
                       }
+                      required
                     >
-                      <option>Not sure — let&apos;s map it together</option>
-                      <option>I prefer stability</option>
-                      <option>I&apos;m comfortable with balance</option>
-                      <option>I can accept higher volatility</option>
+                      <option value="" disabled>-- Select Risk Comfort --</option>
+                      <option value="Conservative (prefer capital stability)">Conservative (prefer capital stability)</option>
+                      <option value="Moderate (balanced growth & stability)">Moderate (balanced growth & stability)</option>
+                      <option value="Aggressive (higher growth, accepts volatility)">Aggressive (higher growth, accepts volatility)</option>
                     </select>
                   </div>
                 </div>

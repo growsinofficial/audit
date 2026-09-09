@@ -684,18 +684,30 @@
   margin-bottom: 26px;
 }
 
-.mkt-page .check-list li {
+.mkt-page .check-list li,
+.mkt-page .check-list .check-item {
   display: flex;
   gap: 10px;
   align-items: flex-start;
   font-size: 15px;
-  color: #f0fdf4;
+  color: #ffffff !important;
+}
+
+.mkt-page .check-list .check-item .check-text,
+.mkt-page .session .check-list li span:last-child {
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .mkt-page .check-list .ck {
-  color: var(--brand-gold);
+  color: var(--brand-gold) !important;
   font-weight: 700;
   flex: none;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .mkt-page .form-card {
@@ -730,6 +742,14 @@
   margin-bottom: 6px;
 }
 
+.mkt-page .field .field-hint {
+  display: block;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
 .mkt-page .field input,
 .mkt-page .field select {
   width: 100%;
@@ -741,6 +761,15 @@
   outline: none;
   transition: border 0.15s, box-shadow 0.15s;
   background: #fff;
+  color: var(--ink);
+}
+
+.mkt-page .field select:invalid,
+.mkt-page .field select option[value=""] {
+  color: #718096;
+}
+
+.mkt-page .field select option:not([value=""]) {
   color: var(--ink);
 }
 
