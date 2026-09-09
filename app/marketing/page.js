@@ -1,16 +1,16 @@
 import MarketingLanding from "./MarketingLanding";
 
 export const metadata = {
-  title: "Growsin — Learn to Invest with Discipline | Guided by SEBI-Registered Research",
+  title: "Growsin Portfolios — Educational Model Portfolio Case Studies for Monthly SIP Investing",
   description:
-    "Growsin helps Indian investors understand goal-based investing through research-backed education, transparent methodology, and mentor-style guidance. No hype. No stock tips. Just process.",
+    "Explore how goal-based model portfolios are constructed for monthly SIP investing — asset allocation logic, risk parameters, and rebalancing rules. SEBI Registered Investment Adviser & Research Analyst. Educational case studies only.",
   alternates: {
     canonical: "https://www.growsin.com/marketing",
   },
   openGraph: {
-    title: "Growsin — Learn to Invest with Discipline | Guided by SEBI-Registered Research",
+    title: "Growsin Portfolios — Educational Model Portfolio Case Studies for Monthly SIP Investing",
     description:
-      "Growsin helps Indian investors understand goal-based investing through research-backed education, transparent methodology, and mentor-style guidance. No hype. No stock tips. Just process.",
+      "Explore how goal-based model portfolios are constructed for monthly SIP investing — asset allocation logic, risk parameters, and rebalancing rules. SEBI Registered Investment Adviser & Research Analyst. Educational case studies only.",
     url: "https://www.growsin.com/marketing",
     siteName: "Growsin",
     type: "website",
@@ -26,9 +26,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growsin — Learn to Invest with Discipline | Guided by SEBI-Registered Research",
+    title: "Growsin Portfolios — Educational Model Portfolio Case Studies for Monthly SIP Investing",
     description:
-      "Growsin helps Indian investors understand goal-based investing through research-backed education, transparent methodology, and mentor-style guidance. No hype. No stock tips. Just process.",
+      "Explore how goal-based model portfolios are constructed for monthly SIP investing — asset allocation logic, risk parameters, and rebalancing rules. SEBI Registered Investment Adviser & Research Analyst. Educational case studies only.",
     images: ["https://www.growsin.com/img/logo.png"],
   },
 };
