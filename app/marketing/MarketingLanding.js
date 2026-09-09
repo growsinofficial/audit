@@ -8,6 +8,8 @@ import Footer from "@/layouts/Footer";
 import "./marketing.css";
 
 export default function MarketingLanding() {
+  const router = useRouter();
+
   // 3-Tier Case Study Tab State
   const [activeTier, setActiveTier] = useState("conservative");
 
@@ -82,7 +84,12 @@ export default function MarketingLanding() {
 
     setTimeout(() => {
       setLoading(false);
-      router.push(`/thank-you?name=${encodeURIComponent(formData.name.trim())}`);
+      const targetUrl = `/thank-you?name=${encodeURIComponent(formData.name.trim())}`;
+      if (router && typeof router.push === "function") {
+        router.push(targetUrl);
+      } else if (typeof window !== "undefined") {
+        window.location.href = targetUrl;
+      }
     }, 400);
   };
 
