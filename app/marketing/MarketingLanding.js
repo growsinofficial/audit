@@ -101,7 +101,9 @@ export default function MarketingLanding() {
     };
 
     // Parallel dispatch: FormSubmit + Google Sheets Webhook
-    const sheetWebhook = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+    const sheetWebhook =
+      process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ||
+      "https://script.google.com/macros/s/AKfycbxj3JFcjw6ZYQ-kgAOUPUyYMfGq90jMVhV97DTLunS1rKe_5qgFnHynG8nWugG3Sk5s/exec";
     const dispatchPromises = [
       fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
         method: "POST",
