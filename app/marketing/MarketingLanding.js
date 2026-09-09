@@ -83,25 +83,51 @@ export default function MarketingLanding() {
       }
     }
 
-    // Send lead to growsinofficial@gmail.com via FormSubmit
-    try {
-      await fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
+    const leadPayload = {
+      name: formData.name.trim(),
+      phone: "+91 " + formData.phone.trim(),
+      email: formData.email.trim(),
+      horizon: formData.horizon,
+      riskComfort: formData.riskComfort,
+      "Full Name": formData.name.trim(),
+      "Mobile Number": "+91 " + formData.phone.trim(),
+      "Email Address": formData.email.trim(),
+      "Primary Goal Horizon": formData.horizon,
+      "Risk Comfort": formData.riskComfort,
+      submittedAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+      _subject: `New Goal-Mapping Lead: ${formData.name.trim()} (${formData.phone.trim()})`,
+      _template: "table",
+      _captcha: "false",
+    };
+
+    // Parallel dispatch: FormSubmit + Google Sheets Webhook
+    const sheetWebhook = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+    const dispatchPromises = [
+      fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          "Full Name": formData.name.trim(),
-          "Mobile Number": "+91 " + formData.phone.trim(),
-          "Email Address": formData.email.trim(),
-          "Primary Goal Horizon": formData.horizon,
-          "Risk Comfort": formData.riskComfort,
-          _subject: `New Goal-Mapping Lead: ${formData.name.trim()} (${formData.phone.trim()})`,
-          _template: "table",
-          _captcha: "false",
-        }),
-      });
+        body: JSON.stringify(leadPayload),
+      }),
+    ];
+
+    if (sheetWebhook) {
+      dispatchPromises.push(
+        fetch(sheetWebhook, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(leadPayload),
+        })
+      );
+    }
+
+    try {
+      await Promise.allSettled(dispatchPromises);
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
