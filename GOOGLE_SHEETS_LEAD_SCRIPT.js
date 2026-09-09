@@ -51,8 +51,11 @@ function doPost(e) {
     var horizon = data["Primary Goal Horizon"] || data.horizon || "";
     var risk = data["Risk Comfort"] || data.riskComfort || "";
 
+    // Prevent Google Sheets formula parse error: prefix with ' to treat as plain text
+    var safePhone = "'" + phone.toString().replace(/^'+/, "");
+
     // 1. Append lead row to Google Sheet
-    sheet.appendRow([timestamp, name, phone, email, horizon, risk]);
+    sheet.appendRow([timestamp, name, safePhone, email, horizon, risk]);
 
     // 2. Send instant email notification to growsinofficial@gmail.com
     var recipient = "growsinofficial@gmail.com";

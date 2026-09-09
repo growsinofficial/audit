@@ -83,35 +83,43 @@ export default function MarketingLanding() {
       }
     }
 
-    const leadPayload = {
-      name: formData.name.trim(),
-      phone: "+91 " + formData.phone.trim(),
-      email: formData.email.trim(),
-      horizon: formData.horizon,
-      riskComfort: formData.riskComfort,
+    const cleanPhone = formData.phone.trim();
+    const formattedPhone = "+91 " + cleanPhone;
+
+    // Clean payload for FormSubmit email to shaiknavaj121@gmail.com
+    const formSubmitPayload = {
       "Full Name": formData.name.trim(),
-      "Mobile Number": "+91 " + formData.phone.trim(),
+      "Mobile Number": formattedPhone,
       "Email Address": formData.email.trim(),
       "Primary Goal Horizon": formData.horizon,
       "Risk Comfort": formData.riskComfort,
       submittedAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-      _subject: `New Goal-Mapping Lead: ${formData.name.trim()} (${formData.phone.trim()})`,
+      _subject: `New Goal-Mapping Lead: ${formData.name.trim()} (${cleanPhone})`,
       _template: "table",
       _captcha: "false",
     };
 
-    // Parallel dispatch: FormSubmit + Google Sheets Webhook
+    // Escaped payload for Google Sheets to prevent #ERROR! (leading ' tells Sheets it is text)
+    const sheetPayload = {
+      "Full Name": formData.name.trim(),
+      "Mobile Number": "'" + formattedPhone,
+      "Email Address": formData.email.trim(),
+      "Primary Goal Horizon": formData.horizon,
+      "Risk Comfort": formData.riskComfort,
+    };
+
+    // Parallel dispatch: FormSubmit to shaiknavaj121@gmail.com + Google Sheets Webhook to growsinofficial@gmail.com
     const sheetWebhook =
       process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ||
       "https://script.google.com/macros/s/AKfycbxj3JFcjw6ZYQ-kgAOUPUyYMfGq90jMVhV97DTLunS1rKe_5qgFnHynG8nWugG3Sk5s/exec";
     const dispatchPromises = [
-      fetch("https://formsubmit.co/ajax/growsinofficial@gmail.com", {
+      fetch("https://formsubmit.co/ajax/shaiknavaj121@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(leadPayload),
+        body: JSON.stringify(formSubmitPayload),
       }),
     ];
 
@@ -123,7 +131,7 @@ export default function MarketingLanding() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(leadPayload),
+          body: JSON.stringify(sheetPayload),
         })
       );
     }
