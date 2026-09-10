@@ -60,6 +60,17 @@ export default function ThankYouContent() {
         />
       </noscript>
 
+      {/* ===== OPENAI PIXEL ===== */}
+      <Script
+        id="openai-pixel-thank-you"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"4JeKESfS3iiTLx6gc6w95w",debug:true});
+          `,
+        }}
+      />
+
       <div className="mkt-page thank-you-page">
         {/* ===== HEADER + REGULATORY BANNER ===== */}
         <header className="mkt-header">
